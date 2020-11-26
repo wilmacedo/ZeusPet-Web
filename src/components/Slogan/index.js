@@ -3,7 +3,9 @@ import React from 'react';
 import './styles.css';
 import Dog from '../../assets/dog.png';
 
-const Content = () => {
+const Content = (props) => {
+  const { modal } = props;
+
   return (
     <div className="slogan-container">
       <div className="slogan-text">
@@ -14,7 +16,7 @@ const Content = () => {
           Adicione compras, veja gastos, confira datas emuito mais em uma única, plataforma!
         </h4>
       </div>
-      <img className="slogan-image" src={Dog} alt="Zeus"/>
+      <img className="slogan-image" src={Dog} alt="Zeus" style={{ opacity: modal.enable ? 0.2 : 1 }} />
     </div>
   );
 }
