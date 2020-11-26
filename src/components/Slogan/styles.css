@@ -1,0 +1,55 @@
+.slogan-container  {
+  margin-top: 50px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+.slogan-text {
+  align-self: center;
+  max-width: 30%;
+}
+
+.slogan-text h1 {
+  margin-block-end: 10px;
+  font-weight: 600;
+}
+
+.slogan-text h4 {
+  margin-block-start: 0;
+  font-weight: 400;
+  color: rgba(0, 0, 0, 0.75);
+}
+
+.slogan-image {
+  max-width: 100%;
+  height: auto;
+}
+
+@media (max-width: 750px) {
+  .slogan-container {
+    flex-direction: column-reverse;
+    align-items: center;
+  }
+
+  .slogan-text {
+    max-width: 50%;
+    text-align: center;
+  }
+
+  .slogan-image {
+    width: 258;
+    height: 154;
+  }
+}
+
+@media (max-width: 425px) {
+  .slogan-text {
+    max-width: 80%;
+    font-size: 0.8rem;
+  }
+
+  .slogan-image {
+    max-width: 83%;
+  }
+}
