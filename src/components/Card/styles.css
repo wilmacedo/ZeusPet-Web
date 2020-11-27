@@ -25,6 +25,11 @@
     transform: translateY(-30px);
 }
 
+.card-modal {
+  cursor: unset !important;
+  transform: none !important;
+}
+
 @media (max-width: 750px) {
     .card:hover {
         transform: translateY(-10px);

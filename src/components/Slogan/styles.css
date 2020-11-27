@@ -24,7 +24,7 @@
 .slogan-image {
   max-width: 100%;
   height: auto;
-  animation: loadImageWebPage 2s;
+  animation: loadImageWebPage 1.5s;
   transition: 0.5s ease;
 }
 

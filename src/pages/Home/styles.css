@@ -7,9 +7,9 @@ body {
   background-color: #f2f4f8;
 }
 
-.modal {
-  background-color: rgba(0, 0, 0, 0.5);
-  transition: 0.5s ease;
+.global {
+  height: 100vh;
+  width: 100%;
 }
 
 .cards {
@@ -17,6 +17,11 @@ body {
   flex-direction: row;
   justify-content: center;
   align-items: center;
+}
+
+.global-modal {
+  background-color: rgba(0, 0, 0, 0.5);
+  transition: 0.5s ease;
 }
 
 @media (max-width: 750px) {

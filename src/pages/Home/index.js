@@ -4,6 +4,7 @@ import './styles.css';
 import Header from '../../components/Header';
 import Slogan from '../../components/Slogan';
 import Card from '../../components/Card';
+import { modalFunctions } from '../../core';
 
 const modes = [
   {
@@ -24,15 +25,13 @@ const Home = () => {
   const [modal, setModal] = useState({ enable: false });
 
   useEffect(() => {
-    if (modal.enable) {
-      document.body.classList.add('modal');
-    } else {
-      document.body.classList.remove('modal');
-    }
+    modalFunctions(modal);
   });
 
   return (
-    <div className="global">
+    <div className="global" onClick={() => {
+      if (modal.enable) setModal({ enable: false });
+    }}>
       <div className="modal-container">
         <Header />
         <Slogan modal={modal} />
@@ -40,7 +39,6 @@ const Home = () => {
           {modes.map((item, index) => {
             return <Card
               key={index}
-              modal={modal}
               setModal={setModal}
               name={item.name}
               icon={item.icon}
