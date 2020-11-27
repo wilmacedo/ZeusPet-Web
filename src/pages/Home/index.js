@@ -4,6 +4,8 @@ import './styles.css';
 import Header from '../../components/Header';
 import Slogan from '../../components/Slogan';
 import Card from '../../components/Card';
+import Modal from '../../components/Modal';
+
 import { modalFunctions } from '../../core';
 
 const modes = [
@@ -26,13 +28,18 @@ const Home = () => {
 
   useEffect(() => {
     modalFunctions(modal);
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape') if (modal.enable) setModal({ enable: false });
+    }, false);
   });
 
   return (
-    <div className="global" onClick={() => {
-      if (modal.enable) setModal({ enable: false });
-    }}>
-      <div className="modal-container">
+    <div
+      className="global">
+      <Modal modal={modal} />
+      <div className="body-container" onClick={() => {
+        if (modal.enable) setModal({ enable: false });
+      }}>
         <Header />
         <Slogan modal={modal} />
         <div className="cards">

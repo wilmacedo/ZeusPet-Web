@@ -14,7 +14,7 @@ export const modalFunctions = (modal) => {
 const cardModalStyle = (cards, type) => {
     for (const item in cards) {
         const list = cards[item].classList;
-        if (list != undefined) {
+        if (list !== undefined) {
             type === 'add' ? list.add('card-modal') : list.remove('card-modal');
         }
     }
