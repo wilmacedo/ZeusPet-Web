@@ -26,10 +26,9 @@ const Home = () => {
   });
 
   return (
-    <div
-      className="global">
+    <div className="global">
       <Modal modal={modal} />
-      <div className="body-container" onClick={() => {
+      <div className="body-container" style={{ overflow: modal.enable ? 'hidden' : 'unset' }} onClick={() => {
         if (modal.enable) setModal({ enable: false, type: 'none' });
       }}>
         <Header />
