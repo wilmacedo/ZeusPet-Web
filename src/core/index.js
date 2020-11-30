@@ -40,15 +40,3 @@ export const defaultConfig = [
         type: 'stats'
     }
 ];
-
-export const formatToMoney = (number) => {
-    let maxDecimal = 2, decSeparator = ',', thoSeperator = '.';
-    let sign = number < 0 ? '-' : '';
-    var i = String(parseInt(number = Math.abs(Number(number) || 0).toFixed(maxDecimal)));
-    var j = (j = i.length) > 3 ? j % 3 : 0;
-
-    return sign +
-        (j ? i.substr(0, j) + thoSeperator : '') +
-        i.substr(j).replace(/(\decSeparator{3})(?=\decSeparator)/g, "$1" + thoSeperator) +
-        (maxDecimal ? decSeparator + Math.abs(number - i).toFixed(maxDecimal).slice(2) : '');
-}
