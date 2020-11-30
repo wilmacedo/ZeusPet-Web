@@ -47,6 +47,28 @@ const Store = () => {
           </select>
         </div>
       </div>
+      <div className="box-form">
+        <i class="far fa-keyboard"></i>
+        <input
+          type="text"
+          maxLength={12}
+          placeholder="Ração"
+          style={{ marginLeft: 15 }}
+        />
+      </div>
+      <div className="box-form">
+        <i class="far fa-money-bill-alt"></i>
+        <label>R$</label>
+        <input
+          type="number"
+          placeholder="30,00"
+          min="0.01"
+          step="0.01"
+        />
+      </div>
+      <div className="form-button">
+        <label>Adicionar</label>
+      </div>
     </form>
   );
 }

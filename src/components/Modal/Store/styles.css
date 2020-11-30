@@ -1,6 +1,12 @@
 .store-form {
-  margin: 50px 0 0 50px;
-  animation: start 2s ease;
+  margin: 50px;
+  animation: start 0.5s ease;
+}
+
+.store-form input, .store-form select {
+  font-family: 'Roboto', sans-serif;
+  border: 0;
+  outline: none;
 }
 
 .store-time {
@@ -10,7 +16,6 @@
 }
 
 .store-time-text {
-  border: 0;
   font-size: 50px;
   font-weight: 500;
   width: 55px;
@@ -27,6 +32,7 @@
   border: 0;
   font-size: 18px;
   color: rgba(0, 0, 0, 0.5);
+  background-color: transparent;
 }
 
 .separator {
@@ -35,20 +41,86 @@
   font-weight: 500;
 }
 
+.box-form {
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  border-radius: 25px;
+  margin-top: 20px;
+  height: 50px;
+  width: 300px;
+  display: flex;
+  align-items: center;
+  transition: 0.15s ease;
+}
+
+.box-form i {
+  margin-left: 15px;
+  font-size: 20px;
+}
+
+.box-form input {
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+  font-size: 18px;
+}
+
+.box-form label {
+  margin-left: 15px;
+  font-weight: 400;
+  font-size: 18px;
+}
+
+.form-button {
+  height: 40px;
+  width: 150px;
+  background-color: black;
+  border-radius: 25px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.form-button label {
+  color: white;
+  font-size: 16px;
+  font-weight: 300;
+}
+
+.box-form:focus-within {
+  border: 1px solid black;
+}
+
+::placeholder {
+  font-size: 18px;
+}
+
 input[type=number]::-webkit-inner-spin-button {
   -webkit-appearance: none;
 }
 
-input {
-  font-family: 'Roboto', sans-serif;
+@media (max-width: 750px) {
+  .store-form {
+    margin: 25px;
+  }
+
+  .box-form {
+    width: 250px;
+  }
+
+  .form-button {
+    width: 100%;
+  }
 }
 
 @keyframes start {
   from {
-    opacity: 0;
+    transform: translateY(-10px);
   }
 
   to {
-    opacity: 1;
+    transform: translateY(0);
   }
 }

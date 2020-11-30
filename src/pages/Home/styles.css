@@ -39,4 +39,8 @@ body {
   .global {
     height: 100%;
   }
+
+  .card:last-child {
+    margin-bottom: 20px;
+  }
 }

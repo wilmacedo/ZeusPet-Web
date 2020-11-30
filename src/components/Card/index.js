@@ -6,11 +6,15 @@ const Card = (props) => {
     name,
     icon,
     type,
+    style,
     setModal
   } = props;
 
   return (
-    <div className="card" onClick={() => setModal({ enable: true, type })}>
+    <div className="card" onClick={() => {
+      setModal({ enable: true, type });
+      window.scrollTo(0, 0);
+    }}>
       <div className="card-icon">{icon}</div>
       <span className="card-title">{name}</span>
     </div>
