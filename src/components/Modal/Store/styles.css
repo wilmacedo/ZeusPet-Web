@@ -1,3 +1,54 @@
 .store-form {
   margin: 50px 0 0 50px;
+  animation: start 2s ease;
+}
+
+.store-time {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.store-time-text {
+  border: 0;
+  font-size: 50px;
+  font-weight: 500;
+  width: 55px;
+}
+
+.store-date {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: 15px;
+}
+
+.store-date-text {
+  border: 0;
+  font-size: 18px;
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.separator {
+  font-size: 32px;
+  padding-bottom: 5px;
+  font-weight: 500;
+}
+
+input[type=number]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+input {
+  font-family: 'Roboto', sans-serif;
+}
+
+@keyframes start {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
 }

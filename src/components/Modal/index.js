@@ -6,8 +6,8 @@ const Modal = (props) => {
   const { modal } = props;
 
   const modalStyle = {
-    width: modal.enable ? '40%' : 0,
-    height: modal.enable ? '60%' : 0,
+    width: modal.enable ? 510 : 0,
+    height: modal.enable ? 580 : 0,
   };
 
   const renderModal = () => {
