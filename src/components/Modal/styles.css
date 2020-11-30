@@ -6,11 +6,9 @@
     right: 0;
     top: 0;
     bottom: 0;
-    height: 60%;
-    width: 40%;
-    min-width: 400px;
+    height: 0;
+    width: 0;
     background-color: white;
     border-radius: 25px;
-    opacity: 0;
-    transition: 0.5s ease;
+    transition: 0.3s ease;
 }

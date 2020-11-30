@@ -11,7 +11,7 @@ const Slogan = () => {
           Obtenha controle total do seu melhor amigo!
         </h1>
         <h4>
-          Adicione compras, veja gastos, confira datas emuito mais em uma única, plataforma!
+          Adicione compras, veja gastos, confira datas e muito mais em uma única plataforma!
         </h4>
       </div>
       <img className="slogan-image" src={Dog} alt="Zeus" />
