@@ -1,10 +1,13 @@
 import React, { useState } from 'react';
 import './styles.css';
 
+import { sendNewData } from '../../../services';
+
 import Loader from '../../Loader';
 
 import moment from 'moment';
-import { sendNewData } from '../../../services';
+import 'moment/locale/pt-br';
+moment.locale('pt-br');
 
 const Store = () => {
   let defaultWidth = 160;
@@ -35,14 +38,13 @@ const Store = () => {
       let {
         hour, min, day, month
       } = date;
-      if (hour === undefined) hour = moment().format('HH');
-      if (min === undefined) min = moment().format('mm');
-      if (day === undefined) day = moment().format('DD');
-      if (month === undefined) month = moment().format('MM');
 
-      const formattedDate = moment().set({
-        'hour': hour, 'min': min, 'day': day, 'month': month
-      });
+      const formattedDate = moment();
+      if (hour !== undefined) formattedDate.set('hour', hour);
+      if (min !== undefined) formattedDate.set('minute', min);
+      if (day !== undefined) formattedDate.set('date', day);
+      if (month !== undefined) formattedDate.set('month', month);
+
       const formattedTitle = title.charAt(0).toUpperCase() + title.slice(1);
 
       setButtonText(<Loader size={25} />);
@@ -116,7 +118,7 @@ const Store = () => {
             onChange={(event) => setDate({ month: parseInt(event.target.value) })}
           >
             {months.map((name, index) => {
-              return <option key={index} value={index}>{name}</option>
+              return <option key={index} value={index + 1}>{name}</option>
             })}
           </select>
         </div>
