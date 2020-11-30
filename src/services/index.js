@@ -1,11 +1,10 @@
 const baseUrl = 'https://zeus-mobile-backend.herokuapp.com/api/zeus';
 
-const errorMsg = (error) => console.log('[Services] Error: ' + error);
+const errorMsg = (error) => console.log('[Services] ' + error);
 
-export const sendNewData = (title, value, date, setLoading) => {
+export const sendNewData = (title, value, date, setButtonText) => {
   const url = baseUrl + '/';
-
-  setLoading(true);
+  let err = false;
 
   fetch(url, {
     method: 'POST',
@@ -18,8 +17,12 @@ export const sendNewData = (title, value, date, setLoading) => {
       'date': date
     })
   })
-    .catch((error) => errorMsg(error))
+    .catch((error) => {
+      errorMsg(error);
+      setButtonText(<i className="fas fa-exclamation-circle"></i>);
+      err = true;
+    })
     .finally(() => {
-      setLoading(false);
+      if (!err) setButtonText(<i className="fas fa-check"></i>);
     });
 }

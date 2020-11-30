@@ -1,12 +1,21 @@
 import React, { useState } from 'react';
 import './styles.css';
 
+import Loader from '../../Loader';
+
 import moment from 'moment';
+import { sendNewData } from '../../../services';
 
 const Store = () => {
+  let defaultWidth = 160;
   const [date, setDate] = useState({
     hour: undefined, min: undefined, day: undefined, month: undefined
   });
+  const [title, setTitle] = useState();
+  const [price, setPrice] = useState();
+
+  const [width, setWidth] = useState(defaultWidth);
+  const [buttonText, setButtonText] = useState(<label>Adicionar</label>);
 
   const months = [
     'Janeiro', 'Fevereiro', 'Março', 'Maio', 'Abril',
@@ -15,7 +24,32 @@ const Store = () => {
   ];
 
   const submitHandler = () => {
-    // console.log(typeof date);
+    if (title === undefined) {
+      document.getElementById('box-form-title').classList.add('empty');
+    }
+    if (price === undefined) {
+      document.getElementById('box-form-price').classList.add('empty');
+    }
+
+    if (title !== undefined && price !== undefined) {
+      let {
+        hour, min, day, month
+      } = date;
+      if (hour === undefined) hour = moment().format('HH');
+      if (min === undefined) min = moment().format('mm');
+      if (day === undefined) day = moment().format('DD');
+      if (month === undefined) month = moment().format('MM');
+
+      const formattedDate = moment().set({
+        'hour': hour, 'min': min, 'day': day, 'month': month
+      });
+      const formattedTitle = title.charAt(0).toUpperCase() + title.slice(1);
+
+      setButtonText(<Loader size={25} />);
+      setWidth(100);
+
+      sendNewData(formattedTitle, price, formattedDate, setButtonText);
+    }
   }
 
   const changeDate = (values) => {
@@ -51,7 +85,6 @@ const Store = () => {
           defaultValue={moment().format('HH')}
           onChange={(event) => {
             changeDate({ hour: numValid(event.target.value, 0, 24) });
-            console.log(date);
           }}
         />
         <label className="separator">:</label>
@@ -63,7 +96,6 @@ const Store = () => {
           defaultValue={moment().format('mm')}
           onChange={(event) => {
             changeDate({ min: numValid(event.target.value, 0, 60) });
-            console.log(date);
           }}
         />
         <div className="store-date">
@@ -74,10 +106,14 @@ const Store = () => {
             max="31"
             defaultValue={moment().format('DD')}
             style={{ marginLeft: 2 }}
+            onChange={(event) => {
+              changeDate({ day: numValid(event.target.value, 1, 31) });
+            }}
           />
           <select
             defaultValue={moment().format('MM')}
             className="store-date-text"
+            onChange={(event) => setDate({ month: parseInt(event.target.value) })}
           >
             {months.map((name, index) => {
               return <option key={index} value={index}>{name}</option>
@@ -85,16 +121,24 @@ const Store = () => {
           </select>
         </div>
       </div>
-      <div className="box-form">
+      <div id="box-form-title" className="box-form">
         <i className="far fa-keyboard"></i>
         <input
           type="text"
           maxLength={12}
           placeholder="Ração"
           style={{ marginLeft: 15 }}
+          onChange={(event) => {
+            let element = document.getElementById('box-form-title');
+            if (element.classList.contains('empty')) {
+              element.classList.remove('empty');
+            }
+
+            setTitle(event.target.value);
+          }}
         />
       </div>
-      <div className="box-form">
+      <div id="box-form-price" className="box-form">
         <i className="far fa-money-bill-alt"></i>
         <label>R$</label>
         <input
@@ -102,10 +146,22 @@ const Store = () => {
           placeholder="30,00"
           min="0.01"
           step="0.01"
+          onChange={(event) => {
+            let element = document.getElementById('box-form-price');
+            if (element.classList.contains('empty')) {
+              element.classList.remove('empty');
+            }
+
+            setPrice(parseFloat(event.target.value))
+          }}
         />
       </div>
-      <div className="button-form" onClick={submitHandler}>
-        <label>Adicionar</label>
+      <div
+        className="button-form"
+        style={{ width }}
+        onClick={submitHandler}
+      >
+        {buttonText}
       </div>
     </form>
   );

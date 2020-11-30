@@ -6,7 +6,6 @@ const Card = (props) => {
     name,
     icon,
     type,
-    style,
     setModal
   } = props;
 
