@@ -7,9 +7,9 @@ Plataforma para facilitar a organização dos gastos e cuidados com seu pet. Reu
 Desafio proposto por BlueLab para ser utilizado como treinamento de diversas ferramentas e tecnologias do mercado atual, visando aprimorar os conhecimentos nas áreas desenvolvidas.
 
 ## Ideias
-- [ ] Registro de gastos
-- [ ] Histórico de gastos
-- [ ] Charts de atividade
+- [X] Registro de gastos
+- [X] Histórico de gastos
+- [X] Charts de atividade
 
 ## Tecnologias Utilizadas
 
@@ -20,15 +20,16 @@ Desafio proposto por BlueLab para ser utilizado como treinamento de diversas fer
 
 - Página principal
 
-
+<img src="https://raw.githubusercontent.com/wilmacedo/ZeusPet-Web/main/preview/home.png" alt="Home" style="max-width:100%;" width="500px">
 
 - Registro de novo gasto
 
-
+<img src="https://raw.githubusercontent.com/wilmacedo/ZeusPet-Web/main/preview/store.png" alt="Store" style="max-width:100%;" width="500px">
 
 - Histórico de gastos
 
-
+<img src="https://raw.githubusercontent.com/wilmacedo/ZeusPet-Web/main/preview/history.png" alt="History" style="max-width:100%;" width="500px">
 
 - Estatísticas de gastos
 
+<img src="https://raw.githubusercontent.com/wilmacedo/ZeusPet-Web/main/preview/stats.png" alt="Stats" style="max-width:100%;" width="500px">
