@@ -1,4 +1,5 @@
 import Store from "../components/Modal/Store";
+import History from '../components/Modal/History';
 
 export const modalFunctions = (modal) => {
     const body = document.getElementsByClassName('global')[0];
@@ -32,7 +33,8 @@ export const defaultConfig = [
     {
         name: 'Histórico',
         icon: <i className="fas fa-history"></i>,
-        type: 'history'
+        type: 'history',
+        component: <History />
     },
     {
         name: 'Estatísticas',
@@ -40,3 +42,15 @@ export const defaultConfig = [
         type: 'stats'
     }
 ];
+
+export const formatToMoney = (number) => {
+    let maxDecimal = 2, decSeparator = ',', thoSeperator = '.';
+    let sign = number < 0 ? '-' : '';
+    var i = String(parseInt(number = Math.abs(Number(number) || 0).toFixed(maxDecimal)));
+    var j = (j = i.length) > 3 ? j % 3 : 0;
+  
+    return sign + 
+      (j ? i.substr(0, j) + thoSeperator : '') +
+      i.substr(j).replace(/(\decSeparator{3})(?=\decSeparator)/g, "$1" + thoSeperator) +
+      (maxDecimal ? decSeparator + Math.abs(number - i).toFixed(maxDecimal).slice(2) : '');
+  }

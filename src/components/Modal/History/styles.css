@@ -1,0 +1,97 @@
+.history-container {
+  height: 500px;
+  width: 400px;
+  background-color: black;
+  border-radius: 25px;
+  background-color: #f2f2f2;
+}
+
+.search-container {
+  width: 100%;
+  height: 150px;
+  border-radius: 25px;
+  background-color: white;
+  box-shadow: 0 12px 26px rgba(0, 0, 0, 0.08);
+}
+
+.search-title {
+  padding: 20px;
+}
+
+.search-title label {
+  font-size: 20px;
+}
+
+.search-title strong {
+  font-size: 22px;
+}
+
+.search-bar {
+  width: 50%;
+  height: 40px;
+  background-color: #e8e8e8;
+  border-radius: 25px;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  align-items: center;
+  transition: 0.3s ease;
+}
+
+.search-bar i {
+  margin-left: 15px;
+}
+
+.search-bar input {
+  margin: 1px 0 0 5px;
+  background-color: transparent;
+  outline: none;
+  border: 0;
+  font-size: 16px;
+}
+
+::placeholder {
+  font-size: 14px;
+}
+
+.history-items {
+  height: 350px;
+  overflow: auto;
+  border-radius: 25px;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.loader-center {
+  display: flex;
+  height: 50%;
+  justify-content: center;
+  align-items: center;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 50px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+@media(max-width: 750px) {
+  .history-container {
+    width: 300px;
+  }
+
+  .search-bar {
+    width: 60%;
+  }
+}
