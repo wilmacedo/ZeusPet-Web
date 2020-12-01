@@ -15,6 +15,7 @@ Desafio proposto por BlueLab para ser utilizado como treinamento de diversas fer
 
 - React JS
 - MongoDB
+- Vercel
 
 ## Preview das funções
 
