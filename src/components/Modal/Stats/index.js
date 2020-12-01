@@ -1,16 +1,26 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './styles.css';
+
+import { getDayMaxValue, getHeight, getMaxValue } from './filter-data';
+import { getAllItems } from '../../../services';
+import { formatToMoney } from '../../../core';
+
+import Loader from '../../Loader';
 
 const Stats = () => {
   const days = [
     'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sab', 'Dom'
   ];
+  const [data, setData] = useState();
+  const [loading, setLoading] = useState();
+
+  useEffect(() => {
+    getAllItems(setData, setLoading);
+  }, [loading]);
 
   const renderBars = () => {
-    let maxHeight = 100;
-
     return days.map((item, index) => {
-      const height = Math.random() * maxHeight;
+      const height = getHeight(item, data, loading);
       return (
         <div className="bar" key={index} style={{ height }}>
           <label>{item}</label>
@@ -34,7 +44,7 @@ const Stats = () => {
               <i className="far fa-calendar"></i>
           }
         </div>
-        <label>{type === 'money' ? 'R$ ' : ''}<strong>{value}</strong></label>
+        {!loading ? <Loader size={30} /> : <label>{type === 'money' ? 'R$ ' : ''}<strong>{value}</strong></label>}
         <label className="info-card-desc">
           {type === 'money' ? 'Total semanal' : 'Dia de maior valor'}
         </label>
@@ -55,8 +65,8 @@ const Stats = () => {
         </div>
       </div>
       <div className="info-cards">
-        <InfoCard type="money" value="142,90" />
-        <InfoCard type="day" value="Terça" />
+        <InfoCard type="money" value={formatToMoney(getMaxValue(data, loading))} />
+        <InfoCard type="day" value={getDayMaxValue(data, loading)} />
       </div>
     </div>
   );
