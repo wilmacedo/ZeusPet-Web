@@ -15,3 +15,20 @@ Desafio proposto por BlueLab para ser utilizado como treinamento de diversas fer
 
 - React JS
 - MongoDB
+
+## Preview das funções
+
+- Página principal
+
+
+
+- Registro de novo gasto
+
+
+
+- Histórico de gastos
+
+
+
+- Estatísticas de gastos
+
