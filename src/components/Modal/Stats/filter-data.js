@@ -51,7 +51,7 @@ export const getDayMaxValue = (data, loading) => {
     let test = tempList.reduce((acc, date) => acc = acc > date.value ? acc : date.day, 0);
 
     for (const day in days) {
-      if (test == days[day].substring(0, 3).toLowerCase()) {
+      if (test === days[day].substring(0, 3).toLowerCase()) {
         return days[day];
       }
     }
@@ -63,13 +63,13 @@ export const getDayMaxValue = (data, loading) => {
 export const getHeight = (name, data, loading) => {
   const filterList = filterData(data, loading);
   const maxValue = getMaxValue(data, loading);
-  let maxHeight = 150, dayValue = 0, height = 0;
+  let maxHeight = 100, dayValue = 0, height = 0;
 
   if (loading && filterList) {
     for (const item in filterList) {
       let dbDate = moment(filterList[item].date).format('ddd').toLowerCase();
 
-      if (name.toLowerCase() == dbDate) {
+      if (name.toLowerCase() === dbDate) {
         let val = parseInt(filterList[item].value);
 
         if (!isNaN(val)) dayValue += val
@@ -79,5 +79,5 @@ export const getHeight = (name, data, loading) => {
     height = (dayValue / maxValue) * maxHeight;
   }
 
-  return height == 0 ? 2 : height;
+  return height === 0 ? 2 : height;
 }
