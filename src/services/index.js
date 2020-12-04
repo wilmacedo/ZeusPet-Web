@@ -28,14 +28,24 @@ export const sendNewData = (title, value, date, setButtonText) => {
     });
 }
 
-export const getAllItems = (setData, setLoading, reverse) => {
+export const getAllItems = (setData, setLoading) => {
   const url = baseUrl + '/';
 
   fetch(url, {
     method: 'GET'
   })
     .then((response) => response.json())
-    .then((data) => setData(reverse ? data.reverse() : data))
+    .then((data) => setData(data))
     .catch((error) => errorMsg(error))
     .finally(() => setLoading(true));
+}
+
+export const isEmpty = (object) => {
+  for (const item in object) {
+    if (object.hasOwnProperty(item)) {
+      return false;
+    }
+  }
+
+  return true;
 }

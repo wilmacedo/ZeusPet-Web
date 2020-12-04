@@ -1,8 +1,9 @@
 .slogan-container  {
   margin-top: 50px;
   display: flex;
-  flex-direction: row;
   justify-content: space-evenly;
+  cursor: grab;
+  overflow: auto;
 }
 
 .slogan-text {
@@ -33,6 +34,7 @@
   .slogan-container {
     flex-direction: column-reverse;
     align-items: center;
+    overflow: unset;
   }
 
   .slogan-text {

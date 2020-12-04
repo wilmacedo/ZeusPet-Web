@@ -7,8 +7,35 @@
   justify-content: center;
 }
 
+.profile-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  cursor: pointer;
+  right: 0;
+}
+
+.profile {
+  display: inline-block;
+  border: 2px solid black;
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.profile img {
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+}
+
+.profile:not(:first-child) {
+  opacity: .7;
+}
+
 .header-container span {
   font-size: 50px;
   font-weight: 300;
-  letter-spacing: 6px;
+  letter-spacing: 7px;
 }
