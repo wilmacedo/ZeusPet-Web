@@ -57,8 +57,8 @@ const Home = () => {
       <div className="body-container" style={{ overflow: modal.enable ? 'hidden' : 'unset' }} onClick={() => {
         if (modal.enable) setModal({ enable: false, type: 'none' });
       }}>
-        <Header />
-        <Slogan modal={modal} />
+        <Header petName={petName} setPetName={setPetName} />
+        <Slogan modal={modal} petName={petName} />
         <div className="cards">
           {defaultConfig.map((item, index) => {
             return <Card

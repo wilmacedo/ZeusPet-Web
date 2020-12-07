@@ -1,9 +1,17 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 import './styles.css';
 import Dog from '../../assets/dog.png';
 
-const Slogan = () => {
+const Slogan = (props) => {
+  const {
+    petName
+  } = props;
+
+  useEffect(() => {
+    
+  }, [petName]);
+
   return (
     <div className="slogan-container">
       <div className="slogan-text">

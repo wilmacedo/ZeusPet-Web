@@ -20,8 +20,7 @@ const History = (props) => {
   }
 
   const renderItems = () => {
-    let tempData = data;
-    console.log(tempData);
+    let tempData = data.reverse();
     if (searchData !== undefined) tempData = searchData;
 
     return loading ?

@@ -8,20 +8,30 @@
 }
 
 .profile-container {
+  position: absolute;
   display: flex;
-  flex-direction: row;
-  justify-content: flex-end;
   cursor: pointer;
-  right: 0;
+  right: 25px;
+  top: 20px;
 }
 
 .profile {
-  display: inline-block;
-  border: 2px solid black;
-  height: 30px;
-  width: 30px;
+  border: 0.15em solid black;
+  height: 29px;
+  width: 29px;
   border-radius: 50%;
-  overflow: hidden;
+  background-color: white;
+  transition: 0.3s ease;
+  z-index: -1;
+}
+
+.profile:first-child {
+  transform: translateX(10px);
+}
+
+.profile:not(:first-child) {
+  z-index: -2;
+  opacity: 0.6;
 }
 
 .profile img {
@@ -30,12 +40,20 @@
   border-radius: 50%;
 }
 
-.profile:not(:first-child) {
-  opacity: .7;
-}
-
 .header-container span {
   font-size: 50px;
   font-weight: 300;
   letter-spacing: 7px;
+}
+
+.inactive-first {
+  z-index: -2;
+  transform: translateX(34px) !important;
+  opacity: 0.6;
+}
+
+.active-second {
+  z-index: -1;
+  transform: translateX(-24px);
+  opacity: 1 !important;
 }

@@ -1,16 +1,41 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './styles.css';
 
-const Header = () => {
+import CroppedDog from '../../assets/cropped-dog.png';
+import CroppedCat from '../../assets/cropped-cat.png';
+
+const Header = (props) => {
+  const {
+    petName,
+    setPetName
+  } = props;
+
+  useEffect(() => {
+    let dog = document.getElementById('Zeus');
+    let cat = document.getElementById('Cat');
+    
+    console.log('entrou');
+
+    if (petName === 'Zeus') {
+      dog.classList.remove('inactive-first');
+      cat.classList.remove('active-second');
+    } else {
+      dog.classList.add('inactive-first');
+      cat.classList.add('active-second');
+    }
+  }, [petName]);
+
   return (
     <div className="header-container">
       <span>ZEUS</span>
-      <div className="profile-container">
-        <div className="profile">
-          <img src="https://previews.123rf.com/images/iamcitrus/iamcitrus1601/iamcitrus160100028/50909996-cartoon-animal-head-icon-cat-face-avatar-for-profile-of-social-networks-hand-drawn-design-.jpg" />
+      <div className="profile-container" onClick={() => {
+        setPetName(petName === 'Zeus' ? 'Cat' : 'Zeus');
+      }}>
+        <div className="profile" id="Zeus">
+          <img src={CroppedDog} alt="Zeus" />
         </div>
-        <div className="profile">
-          <img src="https://i.pinimg.com/originals/78/54/84/7854843699c1893928012a442386a129.jpg" />
+        <div className="profile" id="Cat">
+          <img src={CroppedCat} alt="Cat" />
         </div>
       </div>
     </div>
