@@ -13,8 +13,6 @@ const Header = (props) => {
   useEffect(() => {
     let dog = document.getElementById('Zeus');
     let cat = document.getElementById('Cat');
-    
-    console.log('entrou');
 
     if (petName === 'Zeus') {
       dog.classList.remove('inactive-first');
