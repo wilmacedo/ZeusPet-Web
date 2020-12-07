@@ -9,7 +9,8 @@ import moment from 'moment';
 import 'moment/locale/pt-br';
 moment.locale('pt-br');
 
-const Store = () => {
+const Store = (props) => {
+  const { fullData, petName } = props;
   let defaultWidth = 160;
   const [date, setDate] = useState({
     hour: undefined, min: undefined, day: undefined, month: undefined
@@ -50,7 +51,11 @@ const Store = () => {
       setButtonText(<Loader size={25} />);
       setWidth(100);
 
-      sendNewData(formattedTitle, price, formattedDate, setButtonText);
+      sendNewData(fullData, petName, {
+        'title': formattedTitle,
+        'value': price,
+        'date': formattedDate
+      }, setButtonText);
     }
   }
 

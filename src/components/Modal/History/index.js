@@ -1,19 +1,16 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import './styles.css';
 
 import Item from './Item';
-import { getAllItems } from '../../../services';
 
 import Loader from '../../Loader';
 
-const History = () => {
-  const [data, setData] = useState();
+const History = (props) => {
+  const {
+    data,
+    loading
+  } = props;
   const [searchData, setSearchData] = useState();
-  const [loading, setLoading] = useState(false);
-
-  useEffect(() => {
-    getAllItems(setData, setLoading, true);
-  }, [loading]);
 
   const filterItems = (value) => {
     const textData = value.target.value.toLowerCase();
@@ -24,6 +21,7 @@ const History = () => {
 
   const renderItems = () => {
     let tempData = data;
+    console.log(tempData);
     if (searchData !== undefined) tempData = searchData;
 
     return loading ?

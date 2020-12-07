@@ -3,7 +3,13 @@ import { defaultConfig } from '../../core';
 import './styles.css';
 
 const Modal = (props) => {
-  const { modal } = props;
+  const {
+    modal,
+    fullData,
+    petName,
+    data,
+    loading
+  } = props;
 
   const modalStyle = {
     opacity: modal.enable ? 1 : 0,
@@ -13,7 +19,8 @@ const Modal = (props) => {
     if (modal.type !== 'none') {
       for (const item in defaultConfig) {
         if (modal.type === defaultConfig[item].type) {
-          return defaultConfig[item].component;
+          if (modal.type === 'store') return defaultConfig[item].component(fullData, petName);
+          return defaultConfig[item].component(data, loading);
         }
       }
     }

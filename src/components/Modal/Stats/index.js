@@ -1,22 +1,19 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import './styles.css';
 
 import { getDayMaxValue, getHeight, getMaxValue } from './filter-data';
-import { getAllItems } from '../../../services';
 import { formatToMoney } from '../../../core';
 
 import Loader from '../../Loader';
 
-const Stats = () => {
+const Stats = (props) => {
+  const {
+    data,
+    loading
+  } = props;
   const days = [
     'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sab', 'Dom'
   ];
-  const [data, setData] = useState();
-  const [loading, setLoading] = useState();
-
-  useEffect(() => {
-    getAllItems(setData, setLoading);
-  }, [loading]);
 
   const renderBars = () => {
     return days.map((item, index) => {
