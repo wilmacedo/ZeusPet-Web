@@ -23,6 +23,8 @@
 
 .slogan-image-container {
   z-index: -1;
+  display: flex;
+  justify-content: center;
 }
 
 .slogan-image {
@@ -47,12 +49,6 @@
     max-width: 50%;
     text-align: center;
   }
-
-  .slogan-image {
-    width: 258;
-    height: 154;
-    animation: loadImageMobile 2s;
-  }
 }
 
 @media (max-width: 425px) {
@@ -61,19 +57,4 @@
     font-size: 0.8rem;
   }
 
-  .slogan-image {
-    max-width: 83%;
-  }
-}
-
-@keyframes loadImageMobile {
-  from {
-    opacity: 0;
-    transform: translateY(-40px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
 }

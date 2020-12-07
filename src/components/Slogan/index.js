@@ -58,8 +58,9 @@ const Slogan = (props) => {
         </h4>
       </div>
       <div className="slogan-image-container">
-        {images.map((item, _) => {
+        {images.map((item, index) => {
           return <img
+            key={index}
             id={item.name + '-image'}
             className="slogan-image"
             src={item.image.default}
