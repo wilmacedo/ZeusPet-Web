@@ -50,13 +50,34 @@ export const getDayMaxValue = (data, loading) => {
       tempList = [...tempList, { day, value }];
     }
 
-    let test = tempList.reduce((acc, date) => acc = acc > date.value ? acc : date.day, 0);
+    let defaultDays = [
+      { day: 'seg', value: 0 }, { day: 'ter', value: 0 }, { day: 'qua', value: 0 },
+      { day: 'qui', value: 0 }, { day: 'sex', value: 0 }, { day: 'sab', value: 0 },
+      { day: 'dom', value: 0 }
+    ];
+
+    for (const item in tempList) {
+      for (const obj in defaultDays) {
+        if (tempList[item].day === defaultDays[obj].day) {
+          defaultDays[obj].value += tempList[item].value;
+        }
+      }
+    }
+
+    let maxValueDay = { day: '', value: -1};
+
+    for (const item in defaultDays) {
+      if (defaultDays[item].value > maxValueDay.value) {
+        maxValueDay = defaultDays[item];
+      }
+    }
 
     for (const day in days) {
-      if (test === days[day].substring(0, 3).toLowerCase()) {
+      if (maxValueDay.day === days[day].substring(0, 3).toLowerCase()) {
         return days[day];
       }
     }
+
   }
   return '?';
 }
